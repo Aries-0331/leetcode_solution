@@ -1,14 +1,14 @@
-def binary_search(list, item):
-    if len(list) == 1 and list[0] == item:
-        return list[0]
-    half = int(len(list)/2)
-    if list[half] == item:
-        return list[half]
-    elif item > list[half]:
-        return binary_search(list[half:], item)
+def binary_search(list, left, right, item):
+    if left > right:
+        return None
+    mid = (left + right) // 2
+    if list[mid] == item:
+        return item
+    elif item > list[mid]:
+        return binary_search(list, mid + 1, right, item)
     else:
-        return binary_search(list[:half], item)
+        return binary_search(list, left, mid - 1, item)
 
 
 list = [1, 3, 5, 7, 9]
-print(binary_search(list, 3))
+print(binary_search(list, 0, 4, 5))
