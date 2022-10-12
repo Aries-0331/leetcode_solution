@@ -11,7 +11,7 @@ graph["jonny"] = []
 graph["peggy"] = []
 
 
-def person_is_seller(name):
+def isMongoSeller(name):
     return name[-1] == 'm'
 
 
@@ -22,7 +22,7 @@ def search(name):
     while search_queue:
         person = search_queue.popleft()
         if not person in searched:
-            if person_is_seller(person):
+            if isMongoSeller(person):
                 print(person + " is mongo seller")
                 return True
             else:
