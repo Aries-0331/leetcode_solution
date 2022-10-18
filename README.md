@@ -1,4 +1,7 @@
+# [《图解算法》](https://book.douban.com/subject/26979890/)
+[grokking-algorithm](https://github.com/egonSchiele/grokking_algorithms)
 
+## Tips
 - python based 3.9.7.
 - 递归
   - 递归函数有两个条件：基线条件、递归条件
@@ -18,6 +21,9 @@
   - 狄克斯特拉算法用于在加权图中寻找最短路径
   - 仅当权重为正时，狄克斯特拉算法才有用
   - 如果图中有负权重，应使用贝尔曼-福德算法
+- 贝尔曼-福德算法(Bellman-Ford)
+  - 与 Dijkstra 同为解决单源最短路径的算法，不同的是，Dijkstra采用贪婪算法范式进行设计，Bellman-Ford 采用动态规划设计，且能适应一般情况，即存在负权边的情况
+  - 一个实现的很好的 Dijkstra 算法比 Bellman-Ford 算法的运行时间要低
 - 贪婪算法
   - 贪婪算法用于寻找局部最优解
   - 对于NP完全问题，尚无快捷解决方案，最佳做法是使用近似算法
@@ -33,5 +39,8 @@
   - 特征抽取是指将物品转换为一系列可比较的数字
   - KNN算法的关键在于提取合适的特征
   
+# [《算法第四版》](https://book.douban.com/subject/19952400/)
+[Algorithms, 4th Edition](https://algs4.cs.princeton.edu/home/)
 
+## Tips
 
