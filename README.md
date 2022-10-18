@@ -1,6 +1,3 @@
-# [《图解算法》](https://book.douban.com/subject/26979890/)
-[grokking-algorithm](https://github.com/egonSchiele/grokking_algorithms)
-
 ## Tips
 - python based 3.9.7.
 - 递归
@@ -39,8 +36,10 @@
   - 特征抽取是指将物品转换为一系列可比较的数字
   - KNN算法的关键在于提取合适的特征
   
-# [《算法第四版》](https://book.douban.com/subject/19952400/)
+## Reference
+[《图解算法》](https://book.douban.com/subject/26979890/)
+[grokking-algorithm](https://github.com/egonSchiele/grokking_algorithms)
+[《算法第四版》](https://book.douban.com/subject/19952400/)
 [Algorithms, 4th Edition](https://algs4.cs.princeton.edu/home/)
 
-## Tips
 
