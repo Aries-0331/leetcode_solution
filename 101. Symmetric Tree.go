@@ -29,13 +29,7 @@ func isChildSymmetric(left, right *TreeNode) bool {
 }
 
 func isSymmetric(root *TreeNode) bool {
-	if root == nil {
-		return true
-	} else if isChildSymmetric(root.Left, root.Right) {
-		return true
-	} else {
-		return false
-	}
+    return isChildSymmetric(root.Left, root.Right)
 }
 
 
