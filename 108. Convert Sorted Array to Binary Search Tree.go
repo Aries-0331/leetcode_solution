@@ -1,3 +1,4 @@
+/*
 思路：
 题目给定的数组是按照升序排列的有序数组，因此可以判断数组是二叉搜索树的中序遍历序列，
 可以选择中间数字作为二叉搜索树的根节点，这样分给左右子树的数字个数相同或只相差1，可以使树保持平衡，
@@ -10,7 +11,7 @@
 在给定中序遍历序列数组的情况下，每个子树中的数字在数组中一定是连续的，
 因此可以通过数组下标范围确定子树包含的数字，下标范围为[left, right],
 对于整个中序遍历序列，下标范围从 left=0 到 right=len(nums)-1，当 left>right 时，平衡二叉搜索树为空。
-
+*/
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -19,17 +20,17 @@
  *     Right *TreeNode
  * }
  */
- func sortedArrayToBST(nums []int) *TreeNode {
-    return bst(nums, 0, len(nums)-1)
+func sortedArrayToBST(nums []int) *TreeNode {
+	return bst(nums, 0, len(nums)-1)
 }
 
-func bst(nums []int, left, right int) *TreeNode{
-    if left > right{
-        return nil
-    }
-    mid := (left + right)/2
-    root := &TreeNode{Val: nums[mid]}
-    root.Left = bst(nums, left, mid-1)
-    root.Right = bst(nums, mid+1, right)
-    return root
+func bst(nums []int, left, right int) *TreeNode {
+	if left > right {
+		return nil
+	}
+	mid := (left + right) / 2
+	root := &TreeNode{Val: nums[mid]}
+	root.Left = bst(nums, left, mid-1)
+	root.Right = bst(nums, mid+1, right)
+	return root
 }
