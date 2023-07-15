@@ -1,7 +1,7 @@
-```
+/*
 思路1：
 快慢指针，快指针一次走两步，慢指针一次走一步，如果存在环，则两指针一定会相遇
-```
+*/
 
 /**
  * Definition for singly-linked list.
@@ -25,11 +25,11 @@
     return false
 }
 
-```
+/*
 思路2：
 哈希表，遍历所有节点，每次我们到达一个节点，如果该节点已经存在于哈希表中，则说明该链表是环形链表，否则就将该节点加入哈希表中，重复这一过程，直到遍历完整个链表即可。
 
-```
+*/
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -49,10 +49,10 @@
     return false
 }
 
-```
+/*
 思路3：
 另辟蹊径，遍历每个节点，给每个访问过的节点赋特殊值，如果访问到与特殊值相等的节点，则有环
-```
+*/
 /**
  * Definition for singly-linked list.
  * type ListNode struct {

@@ -1,3 +1,4 @@
+/*
 思路1：
 平衡二叉树 -- 二叉树的每个节点的左右子树的高度差的绝对值不超过1,则二叉树是平衡二叉树。
 因此,当且仅当二叉树的所有子树都是平衡二叉树时,该二叉树才是平衡二叉树,
@@ -7,6 +8,7 @@
 这是自顶向下的递归过程。
 
 时间复杂度 O(n^2),空间复杂度 O(n)
+*/
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -39,7 +41,7 @@ func max(a, b int) int{
     }
     return b
 }
-
+/*
 思路2：
 思路1时自顶向下递归,对于同一节点,height 函数会被重复调用,导致时间复杂度较高,
 如果使用自底向上的做法,则对于每个节点,函数 height 只会被调用一次。
@@ -50,6 +52,7 @@ func max(a, b int) int{
 若存在一棵树不平衡,则整个二叉树不平衡。
 
 时间复杂度O(n),空间复杂度O(n)
+*/
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
