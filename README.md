@@ -1,5 +1,4 @@
 ## Tips
-- python based 3.9.7.
 - 递归
   - 递归函数有两个条件：基线条件、递归条件
 - 快速排序
@@ -35,6 +34,63 @@
   - 分类就是编组，回归就是预测结果（如数字）
   - 特征抽取是指将物品转换为一系列可比较的数字
   - KNN算法的关键在于提取合适的特征
+
+- 树的遍历
+  - 深度优先遍历
+    1. 前序遍历
+    依序以根节点、左节点、右节点为顺序访问
+    ```
+    void pre_order_traversal(TreeNode *root) {
+    // Do Something with root
+    if (root->lchild != NULL) //若其中一側的子樹非空則會讀取其子樹
+        pre_order_traversal(root->lchild);
+    if (root->rchild != NULL) //另一側的子樹也做相同事
+        pre_order_traversal(root->rchild);
+}
+    ```
+    2. 中序遍历
+    依序以左节点、根节点、右节点为顺序访问
+    ```
+    void in_order_traversal(TreeNode *root) {
+    if (root->lchild != NULL) //若其中一側的子樹非空則會讀取其子樹
+        in_order_traversal(root->lchild);
+    // Do Something with root
+    if (root->rchild != NULL) //另一側的子樹也做相同事
+        in_order_traversal(root->rchild);
+}
+    ```
+    3. 后序遍历
+    依序以左节点、右节点、根节点为顺序访问
+    ```
+    void post_order_traversal(TreeNode *root) {
+    if (root->lchild != NULL) //若其中一側的子樹非空則會讀取其子樹
+        post_order_traversal(root->lchild);
+    if (root->rchild != NULL) //另一側的子樹也做相同事
+        post_order_traversal(root->rchild);
+    // Do Something with root
+}
+    ```
+  - 广度优先遍历
+  优先访问离根节点最近的节点。二叉树的广度优先遍历又称为*按层次遍历*。算法借助队列实现。
+  ```
+  void level(TreeNode *node)
+{
+  Queue *queue = initQueue();
+  enQueue(queue, node);
+
+  while (!isQueueEmpty(queue))
+  {
+    TreeNode *curr = deQueue(queue);
+
+    // Do Something with curr
+
+    if (curr->lchild != NULL)
+      enQueue(queue, curr->lchild);
+    if (curr->rchild != NULL)
+      enQueue(queue, curr->rchild);
+  }
+}
+  ```
   
 ## Reference
 [《图解算法》](https://book.douban.com/subject/26979890/)
