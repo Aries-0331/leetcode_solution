@@ -37,9 +37,9 @@
 
 - 树的遍历
   - 深度优先遍历
-    1. 前序遍历
+    - 前序遍历
     依序以根节点、左节点、右节点为顺序访问
-    ```
+```
     void pre_order_traversal(TreeNode *root) {
     // Do Something with root
     if (root->lchild != NULL) //若其中一側的子樹非空則會讀取其子樹
@@ -47,10 +47,11 @@
     if (root->rchild != NULL) //另一側的子樹也做相同事
         pre_order_traversal(root->rchild);
 }
-    ```
-    2. 中序遍历
+```
+
+    - 中序遍历
     依序以左节点、根节点、右节点为顺序访问
-    ```
+```
     void in_order_traversal(TreeNode *root) {
     if (root->lchild != NULL) //若其中一側的子樹非空則會讀取其子樹
         in_order_traversal(root->lchild);
@@ -58,10 +59,11 @@
     if (root->rchild != NULL) //另一側的子樹也做相同事
         in_order_traversal(root->rchild);
 }
-    ```
-    3. 后序遍历
+```
+
+    - 后序遍历
     依序以左节点、右节点、根节点为顺序访问
-    ```
+```
     void post_order_traversal(TreeNode *root) {
     if (root->lchild != NULL) //若其中一側的子樹非空則會讀取其子樹
         post_order_traversal(root->lchild);
@@ -69,10 +71,11 @@
         post_order_traversal(root->rchild);
     // Do Something with root
 }
-    ```
+```
+
   - 广度优先遍历
   优先访问离根节点最近的节点。二叉树的广度优先遍历又称为*按层次遍历*。算法借助队列实现。
-  ```
+```
   void level(TreeNode *node)
 {
   Queue *queue = initQueue();
@@ -90,7 +93,7 @@
       enQueue(queue, curr->rchild);
   }
 }
-  ```
+```
   
 ## Reference
 [《图解算法》](https://book.douban.com/subject/26979890/)
