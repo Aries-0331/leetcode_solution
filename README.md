@@ -122,6 +122,16 @@ func hasRing(head *ListNode) bool {
 ```go
 /*
 环的入口点问题
+还是快慢指针，当两指针第一次在环中相遇时，分析其步数关系：
+1. 设链表有 a+b 个结点，其中环外有 a 个，环内有 b 个；
+2. 设两指针分别走了 f、s 步，则有 fast 步数为 slow 步数的两倍，即 f=2s，fast 比 slow 多走了 n 个环的长度，即 f=s+nb；
+3. 由以上两式可得：f=2nb，s=nb，即 fast 和 slow 分别走了 2n，n 个环的周长
+若使指针从链表头一直向前走并统计步数为 k，那么走到环入口的步数可表示为 k=a+nb，由上面分析可知，初次相遇时 slow 走了 nb 步，因此只要让 slow 再走 a 步，即可到达环入口。
+此时可构建一个新指针，指向链表头，和 slow 一起向后走 a 步，其必定和 slow 在入口点相遇。
+
+要点：1.f=2s，fast 每次两步，路程刚好是 slow 的两倍
+	 2.f=s+nb，fast 与 slow 相遇时刚好多走了 n 圈
+	 推出 s=nb，在结合从起点到入口点要走 a+nb 步，而 slow 刚好走了 nb 步，得出 slow 再走 a 步便是入口点。
 */
 func detectCycle(head *ListNode) *ListNode {
     fast, slow := head, head
@@ -158,7 +168,7 @@ func lengthOfRing(head *ListNode) int {
         fast = fast.next.next
         if fast == slow {
             meet++
-            continue
+            break
         }
         slow = slow.next
     }
@@ -167,7 +177,7 @@ func lengthOfRing(head *ListNode) int {
         count++
         if fast == slow {
             meet++
-            continue
+            break
         }
         slow = slow.next
     }
@@ -184,8 +194,8 @@ func lengthOfRing(head *ListNode) int {
 - 前序遍历
 依序以根节点、左节点、右节点为顺序访问
 
-```
-    void pre_order_traversal(TreeNode *root) {
+```c++
+void pre_order_traversal(TreeNode *root) {
     // Do Something with root
     if (root->lchild != NULL) //若其中一側的子樹非空則會讀取其子樹
         pre_order_traversal(root->lchild);
@@ -198,8 +208,8 @@ func lengthOfRing(head *ListNode) int {
 
 依序以左节点、根节点、右节点为顺序访问
 
-```
-    void in_order_traversal(TreeNode *root) {
+```c++
+void in_order_traversal(TreeNode *root) {
     if (root->lchild != NULL) //若其中一側的子樹非空則會讀取其子樹
         in_order_traversal(root->lchild);
     // Do Something with root
@@ -212,8 +222,8 @@ func lengthOfRing(head *ListNode) int {
 
 依序以左节点、右节点、根节点为顺序访问
 
-```
-    void post_order_traversal(TreeNode *root) {
+```c++
+void post_order_traversal(TreeNode *root) {
     if (root->lchild != NULL) //若其中一側的子樹非空則會讀取其子樹
         post_order_traversal(root->lchild);
     if (root->rchild != NULL) //另一側的子樹也做相同事
@@ -225,8 +235,8 @@ func lengthOfRing(head *ListNode) int {
 **广度优先遍历**
 优先访问离根节点最近的节点。二叉树的广度优先遍历又称为*按层次遍历*。算法借助队列实现。
 
-```
-  void level(TreeNode *node)
+```c++
+void level(TreeNode *node)
 {
   Queue *queue = initQueue();
   enQueue(queue, node);
